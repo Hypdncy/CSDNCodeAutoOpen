@@ -1,0 +1,37 @@
+{
+    "name": "CSDNCodeAutoOpen",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "自动展开CSDN文章中代码的插件，不用手动点击！",
+    "icons": {
+        "32":"icons/icon-logo-32.ico"
+      },
+    "action": {
+        "default_icon": "icons/icon-logo-32.ico",
+        "default_title": "CSDN文章自动展开代码",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*.csdn.net/*",
+				"https://*.csdn.net/*"
+            ],
+            "js": [
+				"jquery-3.6.1.min.js",
+                "contentscript.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": false
+        }
+    ],
+    "commands": {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "MacCtrl+Shift+F"
+            },
+            "description": "Opens popup.html"
+        }
+    }
+}
